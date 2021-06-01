@@ -1,4 +1,12 @@
-import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/solid";
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  ChartSquareBarIcon,
+  ClipboardListIcon,
+  CogIcon,
+  HomeIcon,
+  PlusIcon,
+} from "@heroicons/react/solid";
 import { styled } from "linaria/react";
 import { VictoryPie } from "victory";
 
@@ -7,6 +15,51 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 12px 8px;
+`;
+
+const NavBar = styled.nav`
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding: 0 8px;
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  z-index: 99;
+`;
+
+const NavBarList = styled.ul`
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 18px;
+  padding: 8px 12px;
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
+`;
+
+const NavBarItem = styled.li`
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .plusIcon {
+    background: #818cf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+  }
+
+  .plusIcon > .icon {
+    color: #fff;
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 const MonthSelecter = styled.input`
@@ -170,6 +223,28 @@ const TransactionsMoney = styled.p`
 const Home = () => {
   return (
     <Container>
+      <NavBar>
+        <NavBarList>
+          <NavBarItem>
+            <HomeIcon className="icon" />
+          </NavBarItem>
+          <NavBarItem>
+            <ClipboardListIcon className="icon" />
+          </NavBarItem>
+          <NavBarItem>
+            <div className="plusIcon">
+              <PlusIcon className="icon" />
+            </div>
+          </NavBarItem>
+          <NavBarItem>
+            <ChartSquareBarIcon className="icon" />
+          </NavBarItem>
+          <NavBarItem>
+            <CogIcon className="icon" />
+          </NavBarItem>
+        </NavBarList>
+      </NavBar>
+
       <MonthSelecter type="month" value="2021-05" />
 
       <MainCard>
