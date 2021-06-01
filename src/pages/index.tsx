@@ -14,7 +14,7 @@ const Container = styled.div`
   background: #eff6ff;
   width: 100%;
   min-height: 100vh;
-  padding: 12px 8px;
+  padding: 12px 8px 80px 8px;
 `;
 
 const NavBar = styled.nav`
