@@ -121,9 +121,32 @@ const MainContainer = styled.div`
     flex: 1;
     padding: 24px 16px;
   }
+  @media (min-width: 1180px) {
+    background: #fff;
+    display: flex;
+    gap: 16px;
+  }
 `;
 
-const Orverview = styled.div``;
+const Orverview = styled.div`
+  @media (min-width: 1180px) {
+    flex: 1;
+    background: #eff6ff;
+    border-radius: 18px;
+    padding: 24px 16px;
+    position: relative;
+  }
+`;
+
+const OrverviewInner = styled.div`
+  @media (min-width: 1180px) {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
 
 const MainCard = styled.div`
   background: #818cf8;
@@ -195,6 +218,11 @@ const ChartDisplay = styled.div`
 const TransactionsWrap = styled.div`
   width: 100%;
   margin-top: 32px;
+
+  @media (min-width: 1180px) {
+    width: 360px;
+    margin-top: 0;
+  }
 `;
 
 const TransactionsTitle = styled.p`
@@ -305,35 +333,37 @@ const Home = () => {
       <MainContainer>
         <Orverview>
           <MonthSelecter type="month" value="2021-05" />
-          <MainCard>
-            <MainCardInner>
-              <MainCardItem>
-                <MainCardLabel>
-                  <span className="income">収入</span>
-                </MainCardLabel>
-                <MainCardMoney>
-                  285,000<span className="yen">円</span>
-                </MainCardMoney>
-              </MainCardItem>
-              <MainCardItem>
-                <MainCardLabel>
-                  <span className="spending">支出</span>
-                </MainCardLabel>
-                <MainCardMoney>
-                  285,000<span className="yen">円</span>
-                </MainCardMoney>
-              </MainCardItem>
-            </MainCardInner>
-          </MainCard>
+          <OrverviewInner>
+            <MainCard>
+              <MainCardInner>
+                <MainCardItem>
+                  <MainCardLabel>
+                    <span className="income">収入</span>
+                  </MainCardLabel>
+                  <MainCardMoney>
+                    285,000<span className="yen">円</span>
+                  </MainCardMoney>
+                </MainCardItem>
+                <MainCardItem>
+                  <MainCardLabel>
+                    <span className="spending">支出</span>
+                  </MainCardLabel>
+                  <MainCardMoney>
+                    285,000<span className="yen">円</span>
+                  </MainCardMoney>
+                </MainCardItem>
+              </MainCardInner>
+            </MainCard>
 
-          <ChartWrap>
-            <ChartDisplay>
-              <VictoryPie />
-            </ChartDisplay>
-            <ChartDisplay>
-              <VictoryPie />
-            </ChartDisplay>
-          </ChartWrap>
+            <ChartWrap>
+              <ChartDisplay>
+                <VictoryPie />
+              </ChartDisplay>
+              <ChartDisplay>
+                <VictoryPie />
+              </ChartDisplay>
+            </ChartWrap>
+          </OrverviewInner>
         </Orverview>
 
         <TransactionsWrap>
