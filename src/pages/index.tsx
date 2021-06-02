@@ -15,6 +15,14 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 12px 8px 80px 8px;
+
+  @media (min-width: 860px) {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    position: relative;
+  }
 `;
 
 const NavBar = styled.nav`
@@ -26,6 +34,13 @@ const NavBar = styled.nav`
   bottom: 24px;
   left: 0;
   z-index: 99;
+
+  @media (min-width: 860px) {
+    width: 180px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
 `;
 
 const NavBarList = styled.ul`
@@ -37,9 +52,26 @@ const NavBarList = styled.ul`
   border-radius: 18px;
   padding: 8px 12px;
   box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
+
+  @media (min-width: 860px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px 0;
+    width: 180px;
+    height: 80%;
+    margin: auto 0;
+    box-shadow: none;
+  }
 `;
 
 const NavBarItem = styled.li`
+  @media (min-width: 860px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .icon {
     width: 48px;
     height: 48px;
@@ -60,6 +92,16 @@ const NavBarItem = styled.li`
     width: 32px;
     height: 32px;
   }
+
+  .label {
+    display: none;
+
+    @media (min-width: 860px) {
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
 `;
 
 const MonthSelecter = styled.input`
@@ -72,6 +114,16 @@ const MonthSelecter = styled.input`
   padding: 0 12px;
   margin: 0 auto;
 `;
+
+const MainContainer = styled.div`
+  @media (min-width: 860px) {
+    background: #eff6ff;
+    flex: 1;
+    padding: 24px 16px;
+  }
+`;
+
+const Orverview = styled.div``;
 
 const MainCard = styled.div`
   background: #818cf8;
@@ -227,103 +279,153 @@ const Home = () => {
         <NavBarList>
           <NavBarItem>
             <HomeIcon className="icon" />
+            <span className="label">Home</span>
           </NavBarItem>
           <NavBarItem>
             <ClipboardListIcon className="icon" />
+            <span className="label">History</span>
           </NavBarItem>
           <NavBarItem>
             <div className="plusIcon">
               <PlusIcon className="icon" />
             </div>
+            <span className="label">Record</span>
           </NavBarItem>
           <NavBarItem>
             <ChartSquareBarIcon className="icon" />
+            <span className="label">Chart</span>
           </NavBarItem>
           <NavBarItem>
             <CogIcon className="icon" />
+            <span className="label">Setting</span>
           </NavBarItem>
         </NavBarList>
       </NavBar>
 
-      <MonthSelecter type="month" value="2021-05" />
+      <MainContainer>
+        <Orverview>
+          <MonthSelecter type="month" value="2021-05" />
+          <MainCard>
+            <MainCardInner>
+              <MainCardItem>
+                <MainCardLabel>
+                  <span className="income">収入</span>
+                </MainCardLabel>
+                <MainCardMoney>
+                  285,000<span className="yen">円</span>
+                </MainCardMoney>
+              </MainCardItem>
+              <MainCardItem>
+                <MainCardLabel>
+                  <span className="spending">支出</span>
+                </MainCardLabel>
+                <MainCardMoney>
+                  285,000<span className="yen">円</span>
+                </MainCardMoney>
+              </MainCardItem>
+            </MainCardInner>
+          </MainCard>
 
-      <MainCard>
-        <MainCardInner>
-          <MainCardItem>
-            <MainCardLabel>
-              <span className="income">収入</span>
-            </MainCardLabel>
-            <MainCardMoney>
-              285,000<span className="yen">円</span>
-            </MainCardMoney>
-          </MainCardItem>
-          <MainCardItem>
-            <MainCardLabel>
-              <span className="spending">支出</span>
-            </MainCardLabel>
-            <MainCardMoney>
-              285,000<span className="yen">円</span>
-            </MainCardMoney>
-          </MainCardItem>
-        </MainCardInner>
-      </MainCard>
+          <ChartWrap>
+            <ChartDisplay>
+              <VictoryPie />
+            </ChartDisplay>
+            <ChartDisplay>
+              <VictoryPie />
+            </ChartDisplay>
+          </ChartWrap>
+        </Orverview>
 
-      <ChartWrap>
-        <ChartDisplay>
-          <VictoryPie />
-        </ChartDisplay>
-        <ChartDisplay>
-          <VictoryPie />
-        </ChartDisplay>
-      </ChartWrap>
-
-      <TransactionsWrap>
-        <TransactionsTitle>Transactions</TransactionsTitle>
-        <TransactionsList>
-          <TransactionsItem>
-            <TransactionsIcon className="spending">
-              <ArrowUpIcon className="icon" />
-            </TransactionsIcon>
-            <TransactionsDesc>
-              <p className="label">昼食すき家</p>
-              <p className="date">5/4</p>
-            </TransactionsDesc>
-            <TransactionsMoney>
-              <span className="inner">
-                -450<span className="yen">円</span>
-              </span>
-            </TransactionsMoney>
-          </TransactionsItem>
-          <TransactionsItem>
-            <TransactionsIcon className="income">
-              <ArrowDownIcon className="icon" />
-            </TransactionsIcon>
-            <TransactionsDesc>
-              <p className="label">昼食すき家</p>
-              <p className="date">5/4</p>
-            </TransactionsDesc>
-            <TransactionsMoney>
-              <span className="inner">
-                -450<span className="yen">円</span>
-              </span>
-            </TransactionsMoney>
-          </TransactionsItem>
-          <TransactionsItem>
-            <TransactionsIcon className="spending">
-              <ArrowUpIcon className="icon" />
-            </TransactionsIcon>
-            <TransactionsDesc>
-              <p className="label">昼食すき家</p>
-              <p className="date">5/4</p>
-            </TransactionsDesc>
-            <TransactionsMoney>
-              <span className="inner">
-                -450<span className="yen">円</span>
-              </span>
-            </TransactionsMoney>
-          </TransactionsItem>
-        </TransactionsList>
-      </TransactionsWrap>
+        <TransactionsWrap>
+          <TransactionsTitle>Transactions</TransactionsTitle>
+          <TransactionsList>
+            <TransactionsItem>
+              <TransactionsIcon className="spending">
+                <ArrowUpIcon className="icon" />
+              </TransactionsIcon>
+              <TransactionsDesc>
+                <p className="label">昼食すき家</p>
+                <p className="date">5/4</p>
+              </TransactionsDesc>
+              <TransactionsMoney>
+                <span className="inner">
+                  -450<span className="yen">円</span>
+                </span>
+              </TransactionsMoney>
+            </TransactionsItem>
+            <TransactionsItem>
+              <TransactionsIcon className="income">
+                <ArrowDownIcon className="icon" />
+              </TransactionsIcon>
+              <TransactionsDesc>
+                <p className="label">昼食すき家</p>
+                <p className="date">5/4</p>
+              </TransactionsDesc>
+              <TransactionsMoney>
+                <span className="inner">
+                  -450<span className="yen">円</span>
+                </span>
+              </TransactionsMoney>
+            </TransactionsItem>
+            <TransactionsItem>
+              <TransactionsIcon className="spending">
+                <ArrowUpIcon className="icon" />
+              </TransactionsIcon>
+              <TransactionsDesc>
+                <p className="label">昼食すき家</p>
+                <p className="date">5/4</p>
+              </TransactionsDesc>
+              <TransactionsMoney>
+                <span className="inner">
+                  -450<span className="yen">円</span>
+                </span>
+              </TransactionsMoney>
+            </TransactionsItem>
+            <TransactionsItem>
+              <TransactionsIcon className="spending">
+                <ArrowUpIcon className="icon" />
+              </TransactionsIcon>
+              <TransactionsDesc>
+                <p className="label">昼食すき家</p>
+                <p className="date">5/4</p>
+              </TransactionsDesc>
+              <TransactionsMoney>
+                <span className="inner">
+                  -450<span className="yen">円</span>
+                </span>
+              </TransactionsMoney>
+            </TransactionsItem>
+            <TransactionsItem>
+              <TransactionsIcon className="spending">
+                <ArrowUpIcon className="icon" />
+              </TransactionsIcon>
+              <TransactionsDesc>
+                <p className="label">昼食すき家</p>
+                <p className="date">5/4</p>
+              </TransactionsDesc>
+              <TransactionsMoney>
+                <span className="inner">
+                  -450<span className="yen">円</span>
+                </span>
+              </TransactionsMoney>
+            </TransactionsItem>
+            <TransactionsItem>
+              <TransactionsIcon className="spending">
+                <ArrowUpIcon className="icon" />
+              </TransactionsIcon>
+              <TransactionsDesc>
+                <p className="label">昼食すき家</p>
+                <p className="date">5/4</p>
+              </TransactionsDesc>
+              <TransactionsMoney>
+                <span className="inner">
+                  -450<span className="yen">円</span>
+                </span>
+              </TransactionsMoney>
+            </TransactionsItem>
+          </TransactionsList>
+        </TransactionsWrap>
+      </MainContainer>
     </Container>
   );
 };
