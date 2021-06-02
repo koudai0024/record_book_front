@@ -17,7 +17,7 @@ const Wrap = styled.nav`
   left: 0;
   z-index: 99;
 
-  @media (min-width: 860px) {
+  @media (min-width: 768px) {
     width: 180px;
     height: 100vh;
     position: sticky;
@@ -35,7 +35,7 @@ const List = styled.ul`
   padding: 8px 12px;
   box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
 
-  @media (min-width: 860px) {
+  @media (min-width: 768px) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -48,7 +48,7 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  @media (min-width: 860px) {
+  @media (min-width: 768px) {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -78,7 +78,7 @@ const Item = styled.li`
   .label {
     display: none;
 
-    @media (min-width: 860px) {
+    @media (min-width: 768px) {
       display: block;
       font-size: 24px;
       font-weight: bold;

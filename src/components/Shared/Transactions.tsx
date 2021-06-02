@@ -5,11 +5,6 @@ import type { VFC } from "react";
 const TransactionsWrap = styled.div`
   width: 100%;
   margin-top: 32px;
-
-  @media (min-width: 1180px) {
-    width: 360px;
-    margin-top: 0;
-  }
 `;
 
 const TransactionsTitle = styled.p`

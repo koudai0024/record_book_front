@@ -10,11 +10,13 @@ const Container = styled.div`
   min-height: 100vh;
   padding: 12px 8px 80px 8px;
 
-  @media (min-width: 860px) {
+  @media (min-width: 768px) {
     background: #fff;
     display: flex;
     justify-content: space-between;
+    max-width: 860px;
     padding: 0;
+    margin: 0 auto;
     position: relative;
   }
 `;
@@ -31,35 +33,10 @@ const MonthSelecter = styled.input`
 `;
 
 const MainContainer = styled.div`
-  @media (min-width: 860px) {
+  @media (min-width: 768px) {
     background: #eff6ff;
     flex: 1;
     padding: 24px 16px;
-  }
-  @media (min-width: 1180px) {
-    background: #fff;
-    display: flex;
-    gap: 16px;
-  }
-`;
-
-const Orverview = styled.div`
-  @media (min-width: 1180px) {
-    flex: 1;
-    background: #eff6ff;
-    border-radius: 18px;
-    padding: 24px 16px;
-    position: relative;
-  }
-`;
-
-const OrverviewInner = styled.div`
-  @media (min-width: 1180px) {
-    width: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 `;
 
@@ -69,14 +46,10 @@ const Home = () => {
       <NavBar />
 
       <MainContainer>
-        <Orverview>
-          <MonthSelecter type="month" value="2021-05" />
-          <OrverviewInner>
-            <MainCard />
+        <MonthSelecter type="month" value="2021-05" />
+        <MainCard />
 
-            <Chart />
-          </OrverviewInner>
-        </Orverview>
+        <Chart />
 
         <Transactions />
       </MainContainer>
