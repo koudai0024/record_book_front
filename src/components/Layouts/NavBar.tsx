@@ -6,6 +6,8 @@ import {
   PlusIcon,
 } from "@heroicons/react/solid";
 import { styled } from "linaria/lib/react";
+import { useSetRecoilState } from "recoil";
+import { RegisterModalState } from "src/lib/atoms/RegisterModal";
 
 const Wrap = styled.nav`
   display: flex;
@@ -87,6 +89,11 @@ const Item = styled.li`
 `;
 
 export const NavBar = () => {
+  const setIsOpen = useSetRecoilState(RegisterModalState);
+
+  const handleModalOpen = () => {
+    setIsOpen(true);
+  };
   return (
     <Wrap>
       <List>
@@ -98,7 +105,7 @@ export const NavBar = () => {
           <ClipboardListIcon className="icon" />
           <span className="label">History</span>
         </Item>
-        <Item>
+        <Item onClick={handleModalOpen}>
           <div className="plusIcon">
             <PlusIcon className="icon" />
           </div>

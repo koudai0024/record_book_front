@@ -2,6 +2,7 @@ import { styled } from "linaria/react";
 import { NavBar } from "src/components/Layouts/NavBar";
 import { Chart } from "src/components/Shared/Chart";
 import { MainCard } from "src/components/Shared/MainCard";
+import { RegisterModal } from "src/components/Shared/RegisterModal";
 import { Transactions } from "src/components/Shared/Transactions";
 
 const Container = styled.div`
@@ -43,6 +44,7 @@ const MainContainer = styled.div`
 const Home = () => {
   return (
     <Container>
+      <RegisterModal />
       <NavBar />
 
       <MainContainer>

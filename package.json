@@ -20,10 +20,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.1",
+    "classcat": "^5.0.3",
     "linaria": "^2.1.0",
     "next": "10.0.9",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "recoil": "^0.3.1",
     "reset.css": "^2.0.2",
     "victory": "^35.8.3"
   },
@@ -31,6 +33,7 @@
     "@babel/core": "^7.14.3",
     "@types/node": "14.14.35",
     "@types/react": "17.0.2",
+    "@types/recoil": "^0.0.9",
     "@types/victory": "^33.1.4",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
